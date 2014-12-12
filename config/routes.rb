@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-    resources :calendar, only: [:index], controller: :calendar
-    get 'calendar' => 'calendar#index'
+
+  resources :posts do
+    resources :comments, :only => [:create]
   end
 
+
   resources :stats
+  get 'stats' => 'stats#index', as: 'stats_path'
+
+  resource :calendar, only: [:index], controller: :calendar
+  get 'calendar' => 'calendar#index'
 
   resources :users
 
@@ -13,7 +19,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#hello'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -62,4 +68,4 @@ Rails.application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-  #   end
+  end
