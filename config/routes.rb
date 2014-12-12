@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+    resources :calendar, only: [:index], controller: :calendar
+    get 'calendar' => 'calendar#index'
+  end
+
   resources :stats
 
   resources :users
@@ -59,4 +63,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
