@@ -62,13 +62,13 @@ class StatsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_stat
-      @stat = Stat.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_stat
+    @stat = Stat.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def stat_params
-      params.require(:stat).permit(:aname, :age, :height, :weight, :wellness_goals)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def stat_params
+    params.require(:stat).permit(:name, :age, :height_in_inches, :integer, :weight, :wellness_goals)
+  end
 end

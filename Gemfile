@@ -5,6 +5,9 @@ gem 'guard-bundler'
 gem 'guard-rspec'
 gem 'factory_girl_rails'
 gem 'bootstrap-generators'
+gem 'faker'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test, :darwin, :development do
   # gem 'ruby_gntp'
@@ -12,6 +15,8 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 
